@@ -1,0 +1,6 @@
+{
+  "enabledPlugins": {
+    "worktrunk-autostart@local-plugins": true,
+    "example-skills@anthropic-agent-skills": true
+  }
+}
