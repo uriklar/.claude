@@ -1,0 +1,26 @@
+# macOS
+.DS_Store
+
+# Claude Code - Session/Cache Data
+debug/
+file-history/
+shell-snapshots/
+todos/
+projects/
+plans/
+ide/
+statsig/
+
+# Claude Code - Personal Data
+history.jsonl
+stats-cache.json
+
+# Plugins (colleagues download their own)
+plugins/
+
+# Local settings (convention from Claude docs)
+*.local.md
+*.local.json
+
+# Nested .claude folder (local settings)
+.claude/
