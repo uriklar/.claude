@@ -24,3 +24,8 @@ plugins/
 
 # Nested .claude folder (local settings)
 .claude/
+paste-cache/
+
+# Generated/dependencies
+node_modules/
+cache/

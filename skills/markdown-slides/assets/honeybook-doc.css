@@ -1,0 +1,568 @@
+/* HoneyBook Document Theme */
+/* Color Palette */
+:root {
+    /* Always */
+    --hb-honey: #fffa56;
+    --hb-white: #ffffff;
+
+    /* Often */
+    --hb-gold: #ffda00;
+    --hb-linen: #f4eae0;
+    --hb-orange: #ffaa00;
+    --hb-pink: #ee6fb3;
+    --hb-red: #ff4f57;
+    --hb-purple: #c3b0f8;
+
+    /* Sometimes */
+    --hb-yellow-01: #ffd412;
+    --hb-yellow-02: #ffe814;
+    --hb-coral: #f86568;
+    --hb-apricot: #fd9546;
+    --hb-key-lime: #dbf0a1;
+    --hb-sky: #a8d0ef;
+
+    /* Dark */
+    --hb-dark: #0d1b2a;
+    --hb-dark-alt: #1b2838;
+
+    /* Text */
+    --hb-text-dark: #0d1b2a;
+    --hb-text-muted: #5a6872;
+}
+
+/* Reset & Base */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 18px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+        'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--hb-linen);
+    color: var(--hb-text-dark);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Main Content Container */
+.content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 2rem 6rem;
+}
+
+/* ===========================================
+   PAGE BREAKS / SECTION DIVIDERS
+   =========================================== */
+
+/* Style <hr> as visual page breaks */
+hr {
+    border: none;
+    height: 2px;
+    background-color: var(--hb-dark);
+    margin: 4rem 0;
+    opacity: 0.15;
+}
+
+hr::after {
+    display: none;
+}
+
+/* ===========================================
+   TYPOGRAPHY
+   =========================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+    line-height: 1.3;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--hb-text-dark);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-top: 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--hb-dark);
+}
+
+h2 {
+    font-size: 1.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 2px solid rgba(13, 27, 42, 0.15);
+}
+
+h3 {
+    font-size: 1.4rem;
+    color: var(--hb-dark-alt);
+}
+
+h4 {
+    font-size: 1.2rem;
+    color: var(--hb-text-muted);
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+strong {
+    font-weight: 600;
+    color: var(--hb-text-dark);
+}
+
+em {
+    font-style: italic;
+}
+
+/* ===========================================
+   LISTS - Yellow arrow bullets
+   =========================================== */
+
+ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1.5rem;
+}
+
+ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 0.6rem;
+}
+
+ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    background-color: var(--hb-dark);
+    color: var(--hb-white);
+    width: 1.4em;
+    height: 1.4em;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75em;
+    font-weight: bold;
+}
+
+/* Nested lists */
+ul ul {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+ul ul li::before {
+    background-color: var(--hb-text-muted);
+    font-size: 0.65em;
+}
+
+/* Ordered lists */
+ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+ol li {
+    margin-bottom: 0.6rem;
+    padding-left: 0.5rem;
+}
+
+ol li::marker {
+    color: var(--hb-gold);
+    font-weight: 600;
+}
+
+/* ===========================================
+   CODE - Syntax Highlighting
+   =========================================== */
+
+/* Inline code */
+code {
+    font-family: 'SF Mono', 'Fira Code', 'Monaco', 'Consolas', 'Liberation Mono',
+        monospace;
+    background-color: rgba(13, 27, 42, 0.08);
+    border: 1px solid rgba(13, 27, 42, 0.12);
+    border-radius: 4px;
+    padding: 0.15em 0.4em;
+    font-size: 0.85em;
+    color: var(--hb-dark);
+}
+
+/* Code blocks */
+pre {
+    background-color: var(--hb-dark);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    box-shadow: 0 4px 12px rgba(13, 27, 42, 0.15);
+}
+
+pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #e6e6e6;
+}
+
+/* ===========================================
+   SYNTAX HIGHLIGHTING (Prism/Highlight.js compatible)
+   =========================================== */
+
+/* Base tokens */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata,
+.hljs-comment {
+    color: #6a9955;
+    font-style: italic;
+}
+
+.token.punctuation,
+.hljs-punctuation {
+    color: #d4d4d4;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted,
+.hljs-number,
+.hljs-literal {
+    color: #b5cea8;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted,
+.hljs-string,
+.hljs-attr {
+    color: #ce9178;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.hljs-operator {
+    color: #d4d4d4;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword,
+.hljs-keyword,
+.hljs-built_in {
+    color: #c586c0;
+}
+
+.token.function,
+.token.class-name,
+.hljs-function,
+.hljs-title {
+    color: #dcdcaa;
+}
+
+.token.regex,
+.token.important,
+.token.variable,
+.hljs-variable {
+    color: #d16969;
+}
+
+/* JSX/TSX specific */
+.token.tag .token.tag,
+.hljs-name {
+    color: #569cd6;
+}
+
+.token.tag .token.attr-name,
+.hljs-attr {
+    color: #9cdcfe;
+}
+
+.token.tag .token.attr-value,
+.token.tag .token.punctuation {
+    color: #ce9178;
+}
+
+/* TypeScript types */
+.token.type,
+.hljs-type {
+    color: #4ec9b0;
+}
+
+/* ===========================================
+   TABLES
+   =========================================== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background-color: var(--hb-white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+thead {
+    background-color: var(--hb-dark);
+    color: var(--hb-white);
+}
+
+th {
+    padding: 1rem 1.2rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+}
+
+td {
+    padding: 0.9rem 1.2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    vertical-align: top;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgba(244, 234, 224, 0.4);
+}
+
+tbody tr:hover {
+    background-color: rgba(255, 250, 86, 0.15);
+}
+
+/* Code in tables */
+td code {
+    font-size: 0.8rem;
+    white-space: nowrap;
+    background-color: rgba(13, 27, 42, 0.06);
+    color: var(--hb-dark);
+}
+
+/* ===========================================
+   BLOCKQUOTES
+   =========================================== */
+
+blockquote {
+    border-left: 4px solid var(--hb-honey);
+    margin: 1.5rem 0;
+    padding: 1rem 1.5rem;
+    background-color: rgba(255, 250, 86, 0.1);
+    border-radius: 0 8px 8px 0;
+}
+
+blockquote p {
+    margin: 0;
+}
+
+blockquote p + p {
+    margin-top: 0.5rem;
+}
+
+/* ===========================================
+   LINKS
+   =========================================== */
+
+a {
+    color: var(--hb-pink);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+a:hover {
+    border-bottom-color: var(--hb-pink);
+}
+
+a code {
+    color: var(--hb-pink);
+}
+
+/* ===========================================
+   IMAGES
+   =========================================== */
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+/* ===========================================
+   SPECIAL SECTIONS
+   =========================================== */
+
+/* Section after h1 (intro) */
+h1 + p {
+    font-size: 1.15rem;
+    color: var(--hb-text-muted);
+}
+
+/* Add visual break before h2 (major sections) */
+h2 {
+    margin-top: 3rem;
+}
+
+/* ===========================================
+   UTILITY CLASSES
+   =========================================== */
+
+.highlight {
+    background-color: var(--hb-honey);
+    padding: 0.1em 0.3em;
+    border-radius: 3px;
+}
+
+.muted {
+    color: var(--hb-text-muted);
+}
+
+/* ===========================================
+   HEADER / BRANDING
+   =========================================== */
+
+.doc-header {
+    background-color: var(--hb-dark);
+    color: var(--hb-white);
+    padding: 2rem;
+    margin-bottom: 0;
+}
+
+.doc-header .brand {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--hb-honey);
+    margin-bottom: 0.5rem;
+}
+
+.doc-header h1 {
+    color: var(--hb-white);
+    border-bottom: none;
+    margin: 0;
+    padding: 0;
+}
+
+.doc-header p {
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0.5rem 0 0 0;
+}
+
+/* ===========================================
+   TABLE OF CONTENTS (optional)
+   =========================================== */
+
+.toc {
+    background-color: var(--hb-white);
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.toc h4 {
+    margin-top: 0;
+    color: var(--hb-text-dark);
+}
+
+.toc ol {
+    margin-bottom: 0;
+}
+
+/* ===========================================
+   RESPONSIVE
+   =========================================== */
+
+@media (max-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+
+    .content {
+        padding: 2rem 1.25rem 4rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    pre {
+        padding: 1rem;
+        border-radius: 0;
+        margin-left: -1.25rem;
+        margin-right: -1.25rem;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    th,
+    td {
+        padding: 0.7rem 0.9rem;
+    }
+}
+
+/* ===========================================
+   PRINT STYLES
+   =========================================== */
+
+@media print {
+    body {
+        background: white;
+    }
+
+    .content {
+        max-width: 100%;
+    }
+
+    pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
+
+    hr {
+        page-break-after: always;
+        visibility: hidden;
+    }
+}
